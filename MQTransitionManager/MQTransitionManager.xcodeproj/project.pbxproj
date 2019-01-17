@@ -14,6 +14,8 @@
 		0FDBB55821F0530E00810CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBB55621F0530E00810CA9 /* LaunchScreen.storyboard */; };
 		0FDBB55B21F0530E00810CA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBB55A21F0530E00810CA9 /* main.m */; };
 		0FDBB56521F055C300810CA9 /* MQTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBB56421F055C300810CA9 /* MQTransitionManager.m */; };
+		0FE0634021F08A10000F9B6B /* MQTransitionPopCoverVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0633F21F08A10000F9B6B /* MQTransitionPopCoverVertical.m */; };
+		0FE0634321F08BCB000F9B6B /* MQTransitionPushCoverVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		0FDBB55A21F0530E00810CA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0FDBB56321F055C300810CA9 /* MQTransitionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionManager.h; sourceTree = "<group>"; };
 		0FDBB56421F055C300810CA9 /* MQTransitionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionManager.m; sourceTree = "<group>"; };
+		0FE0633E21F08A10000F9B6B /* MQTransitionPopCoverVertical.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionPopCoverVertical.h; sourceTree = "<group>"; };
+		0FE0633F21F08A10000F9B6B /* MQTransitionPopCoverVertical.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPopCoverVertical.m; sourceTree = "<group>"; };
+		0FE0634121F08BCB000F9B6B /* MQTransitionPushCoverVertical.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionPushCoverVertical.h; sourceTree = "<group>"; };
+		0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPushCoverVertical.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,8 @@
 		0FDBB56621F055E900810CA9 /* Pop */ = {
 			isa = PBXGroup;
 			children = (
+				0FE0633E21F08A10000F9B6B /* MQTransitionPopCoverVertical.h */,
+				0FE0633F21F08A10000F9B6B /* MQTransitionPopCoverVertical.m */,
 			);
 			path = Pop;
 			sourceTree = "<group>";
@@ -96,6 +104,8 @@
 		0FDBB56721F055EF00810CA9 /* Push */ = {
 			isa = PBXGroup;
 			children = (
+				0FE0634121F08BCB000F9B6B /* MQTransitionPushCoverVertical.h */,
+				0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */,
 			);
 			path = Push;
 			sourceTree = "<group>";
@@ -170,9 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE0634321F08BCB000F9B6B /* MQTransitionPushCoverVertical.m in Sources */,
 				0FDBB56521F055C300810CA9 /* MQTransitionManager.m in Sources */,
 				0FDBB55021F0530D00810CA9 /* ViewController.m in Sources */,
 				0FDBB55B21F0530E00810CA9 /* main.m in Sources */,
+				0FE0634021F08A10000F9B6B /* MQTransitionPopCoverVertical.m in Sources */,
 				0FDBB54D21F0530D00810CA9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
