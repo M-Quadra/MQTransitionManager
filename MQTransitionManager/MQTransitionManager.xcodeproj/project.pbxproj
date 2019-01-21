@@ -16,9 +16,11 @@
 		0FDBB56521F055C300810CA9 /* MQTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBB56421F055C300810CA9 /* MQTransitionManager.m */; };
 		0FE0634021F08A10000F9B6B /* MQTransitionPopCoverVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0633F21F08A10000F9B6B /* MQTransitionPopCoverVertical.m */; };
 		0FE0634321F08BCB000F9B6B /* MQTransitionPushCoverVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */; };
+		EC1274C303216AC1381849A9 /* libPods-MQTransitionManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B772F6C0298AC4FCD34DF95 /* libPods-MQTransitionManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0749096AE41667B8D8B86781 /* Pods-MQTransitionManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTransitionManager.release.xcconfig"; path = "Target Support Files/Pods-MQTransitionManager/Pods-MQTransitionManager.release.xcconfig"; sourceTree = "<group>"; };
 		0FDBB54821F0530D00810CA9 /* MQTransitionManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQTransitionManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBB54B21F0530D00810CA9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0FDBB54C21F0530D00810CA9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 		0FE0633F21F08A10000F9B6B /* MQTransitionPopCoverVertical.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPopCoverVertical.m; sourceTree = "<group>"; };
 		0FE0634121F08BCB000F9B6B /* MQTransitionPushCoverVertical.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionPushCoverVertical.h; sourceTree = "<group>"; };
 		0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPushCoverVertical.m; sourceTree = "<group>"; };
+		2B772F6C0298AC4FCD34DF95 /* libPods-MQTransitionManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MQTransitionManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C2CFB8F5DCBC0A280DB7E6D /* Pods-MQTransitionManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTransitionManager.debug.xcconfig"; path = "Target Support Files/Pods-MQTransitionManager/Pods-MQTransitionManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1274C303216AC1381849A9 /* libPods-MQTransitionManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 				0FDBB56221F0551700810CA9 /* Main */,
 				0FDBB54A21F0530D00810CA9 /* MQTransitionManager */,
 				0FDBB54921F0530D00810CA9 /* Products */,
+				6109EA78FA17562383D242F8 /* Pods */,
+				8D69391CDC2E850CC857D799 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +117,24 @@
 			path = Push;
 			sourceTree = "<group>";
 		};
+		6109EA78FA17562383D242F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C2CFB8F5DCBC0A280DB7E6D /* Pods-MQTransitionManager.debug.xcconfig */,
+				0749096AE41667B8D8B86781 /* Pods-MQTransitionManager.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8D69391CDC2E850CC857D799 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B772F6C0298AC4FCD34DF95 /* libPods-MQTransitionManager.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,6 +142,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FDBB55E21F0530E00810CA9 /* Build configuration list for PBXNativeTarget "MQTransitionManager" */;
 			buildPhases = (
+				71DE682FF3528C456CF44DB3 /* [CP] Check Pods Manifest.lock */,
 				0FDBB54421F0530D00810CA9 /* Sources */,
 				0FDBB54521F0530D00810CA9 /* Frameworks */,
 				0FDBB54621F0530D00810CA9 /* Resources */,
@@ -174,6 +200,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71DE682FF3528C456CF44DB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MQTransitionManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0FDBB54421F0530D00810CA9 /* Sources */ = {
@@ -325,32 +376,40 @@
 		};
 		0FDBB55F21F0530E00810CA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C2CFB8F5DCBC0A280DB7E6D /* Pods-MQTransitionManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Main/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.M-Quadra.MQCutsceneManager.MQTransitionManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		0FDBB56021F0530E00810CA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0749096AE41667B8D8B86781 /* Pods-MQTransitionManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Main/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.M-Quadra.MQCutsceneManager.MQTransitionManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
