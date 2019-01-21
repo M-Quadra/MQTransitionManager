@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = self.navigationController.viewControllers.count&1 ? [UIColor lightGrayColor] : [UIColor grayColor];
     self.navigationItem.title = [@(self.navigationController.viewControllers.count) stringValue];
     
     UIButton *btnLft = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 50, 50)];

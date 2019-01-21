@@ -70,7 +70,10 @@
             self.navigationController.delegate = self;
             [self.navigationController pushViewController:self.viewController animated:YES];
         }
-        default: break;
+        default: {
+            [self free];
+            return;
+        }
     }
 }
 
@@ -90,7 +93,10 @@
                 self.navigationController.delegate = self;
                 break;
             }
-            default: break;
+            default: {
+                [self free];
+                return;
+            }
         }
         
         if (self.navigationController.delegate == self) {
@@ -155,6 +161,10 @@
 }
 
 - (void)free {
+#ifdef DEBUG
+    NSLog(@"free MQTransitionManager for %@ key: %@", NSStringFromClass([self.viewController class]), self.key);
+#endif
+    
     if (self.navigationController.delegate == self) {
         self.navigationController.delegate = self.lastDelegate;
     }
