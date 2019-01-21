@@ -101,6 +101,16 @@
     });
 }
 
+#pragma mark - Lazy
+- (UIPanGestureRecognizer *)panGesture {
+    if (self.operation == UINavigationControllerOperationPush) return nil;
+    
+    if (!_panGesture) {
+        _panGesture = [[UIPanGestureRecognizer alloc] init];
+    }
+    return _panGesture;
+}
+
 #pragma mark - Action
 - (void)panGestureRecognizerAction:(UIPanGestureRecognizer *)pan {
     CGPoint velocity = [pan velocityInView:[UIApplication sharedApplication].delegate.window];

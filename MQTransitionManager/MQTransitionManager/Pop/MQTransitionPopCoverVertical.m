@@ -23,7 +23,7 @@
     if (!toView)   toView   = toVC.view;
     
     NSTimeInterval time = [self transitionDuration:transitionContext];
-    CGFloat top = transitionContext.containerView.frame.origin.y;
+    CGFloat top = transitionContext.containerView.frame.size.height;
     [transitionContext.containerView insertSubview:toView belowSubview:fromView];
     
     [UIView animateWithDuration:time delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
