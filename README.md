@@ -30,6 +30,10 @@ MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation
 [transition setPopType:MQTransitionType_CoverVertical];
 ```
 
+# 已知问题
+
+pop过场取消时 IQKeyboardManager 在下次输入前不能及时复位
+
 -
 
 友情支持
