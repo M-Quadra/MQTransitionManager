@@ -101,7 +101,7 @@
         
         if (self.navigationController.delegate == self) {
             self.panGesture.enabled = YES;
-            [self.panGesture addTarget:self action:@selector(panGestureRecognizerAction:)];
+            [self.panGesture addTarget:self action:@selector(panGestureAction:)];
             [self.navigationController.interactivePopGestureRecognizer.view addGestureRecognizer:self.panGesture];
         }
     });
@@ -118,7 +118,7 @@
 }
 
 #pragma mark - Action
-- (void)panGestureRecognizerAction:(UIPanGestureRecognizer *)pan {
+- (void)panGestureAction:(UIPanGestureRecognizer *)pan {
     CGPoint velocity = [pan velocityInView:[UIApplication sharedApplication].delegate.window];
     CGFloat process = [pan translationInView:self.viewController.view].x / ([UIScreen mainScreen].bounds.size.width);
     process = MAX(0, process);
