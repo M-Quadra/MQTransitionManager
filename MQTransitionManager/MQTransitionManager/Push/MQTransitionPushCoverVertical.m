@@ -18,12 +18,9 @@
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView   = [transitionContext viewForKey:UITransitionContextToViewKey];
     
-    if (!fromView) fromView = fromVC.view;
     if (!toView)   toView   = toVC.view;
     
     CGFloat top = toView.frame.origin.y;

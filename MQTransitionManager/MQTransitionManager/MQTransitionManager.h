@@ -23,14 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)alloc                                NS_UNAVAILABLE;
 + (instancetype)allocWithZone:(struct _NSZone *)zone NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)shareManagerWithOperation:(UINavigationControllerOperation)operation viewController:(UIViewController *)vc;
+/// get push/pop manager of VC
++ (nullable instancetype)shareManagerWithOperation:(UINavigationControllerOperation)operation viewController:(UIViewController *)vc;
 
 @property (nonatomic, weak, readonly) UINavigationController *navigationController;
 @property (nonatomic, weak, readonly) UIViewController       *viewController;
 @property (nonatomic, assign, readonly) UINavigationControllerOperation operation;
 @property (nonatomic, assign, readonly) MQTransitionType                type;
 
+/// push VC with TransitionType in NavigationController
 - (void)pushWithType:(MQTransitionType)type navigationController:(UINavigationController *)nvgCtrl;
+/// set pop TransitionType of VC
 - (void)setPopType:(MQTransitionType)type;
 @end
 
