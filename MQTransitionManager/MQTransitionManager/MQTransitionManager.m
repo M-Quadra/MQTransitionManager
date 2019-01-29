@@ -135,8 +135,8 @@
     } else {
         if (process > 0.4 || velocity.x > 900) {
             [self.interactiveTransition finishInteractiveTransition];
-            //小概率出现finish后触发cancel, 导致导航栏莫名消失
-            //因此在finish后直接释放interactiveTransition
+            // 小概率出现finish后触发cancel, 导致导航栏莫名消失
+            // 因此在finish后直接释放interactiveTransition
             _interactiveTransition = nil;
         } else {
             [self.interactiveTransition cancelInteractiveTransition];
@@ -161,9 +161,9 @@
 }
 
 - (void)free {
-#ifdef DEBUG
-    NSLog(@"free MQTransitionManager for %@ key: %@", NSStringFromClass([self.viewController class]), self.key);
-#endif
+//#ifdef DEBUG
+//    NSLog(@"free MQTransitionManager for %@ key: %@", NSStringFromClass([self.viewController class]), self.key);
+//#endif
     
     if (self.navigationController.delegate == self) {
         self.navigationController.delegate = self.lastDelegate;

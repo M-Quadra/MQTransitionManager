@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MQTransitionManager.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface ViewController ()
 
@@ -17,6 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.shouldResignOnTouchOutside = YES;
+    
     self.view.backgroundColor = self.navigationController.viewControllers.count&1 ? [UIColor lightGrayColor] : [UIColor grayColor];
     self.navigationItem.title = [@(self.navigationController.viewControllers.count) stringValue];
     
@@ -29,6 +34,10 @@
     btnRit.backgroundColor = [UIColor greenColor];
     [btnRit addTarget:self action:@selector(ritBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnRit];
+    
+    UITextField *txtField = [[UITextField alloc] initWithFrame:CGRectMake(50, 50, 200, 50)];
+    [self.view addSubview:txtField];
+    [txtField becomeFirstResponder];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
