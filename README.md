@@ -32,7 +32,7 @@ MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation
 
 # 已知问题
 
-iOS12 pop过场取消时 激活中的键盘 在下次输入前不能及时复位
+iOS12 pop过场取消时 激活中的英文键盘 在下次输入前不能及时复位
 
 -
 
