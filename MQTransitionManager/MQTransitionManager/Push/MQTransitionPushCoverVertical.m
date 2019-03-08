@@ -8,7 +8,7 @@
 
 #import "MQTransitionPushCoverVertical.h"
 
-@interface MQTransitionPushCoverVertical()
+@interface MQTransitionPushCoverVertical ()
 @property (nonatomic, assign) CGRect dstFrame;
 @end
 

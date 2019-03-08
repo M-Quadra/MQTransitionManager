@@ -8,7 +8,7 @@
 
 #import "MQTransitionPopCoverVertical.h"
 
-@interface MQTransitionPopCoverVertical()
+@interface MQTransitionPopCoverVertical ()
 @property (nonatomic, assign) CGRect dstFrame;
 @end
 

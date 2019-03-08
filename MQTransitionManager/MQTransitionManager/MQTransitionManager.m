@@ -12,7 +12,7 @@
 #import "MQTransitionPopCoverVertical.h"
 #import "MQTransitionPushCoverVertical.h"
 
-@interface MQTransitionManager()<UINavigationControllerDelegate>
+@interface MQTransitionManager ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *interactiveTransition;
 @property (nonatomic, weak) id<UINavigationControllerDelegate> lastDelegate;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
