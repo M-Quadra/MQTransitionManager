@@ -44,15 +44,15 @@
                          toView.frame = CGRectMake(containerView.frame.size.width/2,   0,
                                                    containerView.frame.size.width/2, containerView.frame.size.height);
                      } completion:^(BOOL finished) {
-                         //addChildViewController 请在完成时再添加，不然会导致toVC默认导航栏异常
+                         // addChildViewController 请在完成时再添加，不然会导致toVC默认导航栏异常
                          [fromVC.navigationController addChildViewController:toVC];
                          
-                         // Magic (懒_(:з」∠)_)
-                         // 在完成自定义pop后就不需要了
+                         // Magic (懒)
+                         // 在完成自定义pop后就不需要了_(:з」∠)_
 //                         [fromVC.navigationController pushViewController:[UIViewController new] animated:NO];
 //                         [fromVC.navigationController popViewControllerAnimated:NO];
                          
-                         // completion 在 viewDidAppear 后才执行, 先前的设置保留了Type, 但过场无效, 这里重新刷新
+                         // completion 在 viewDidAppear 后才执行, 先前的设置保留了Type, 但过场无效, 此处刷新
                          MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPop viewController:toVC];
                          [transition resetPopType];
                          
