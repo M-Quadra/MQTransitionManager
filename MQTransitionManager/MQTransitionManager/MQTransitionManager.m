@@ -191,7 +191,7 @@
     if (self.operation != UINavigationControllerOperationPop) return nil;
     // prevent conflict on BackBtnClick
     // 防止点击冲突
-    if (self.panGesture.state == UIGestureRecognizerStatePossible) return nil;
+    if (self.panGesture.state == UIGestureRecognizerStatePossible || self.panGesture.state == UIGestureRecognizerStateFailed) return nil;
     
     if (!self.interactiveTransition) {
         _interactiveTransition = [UIPercentDrivenInteractiveTransition new];
