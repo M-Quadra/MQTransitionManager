@@ -44,6 +44,7 @@
             UIView *maskView = [[UIApplication sharedApplication].delegate.window snapshotViewAfterScreenUpdates:NO];
             [[UIApplication sharedApplication].delegate.window addSubview:maskView];
 
+            // 若后续没有任何延迟操作与视图闪动情况可不使用眨眼补帧
             MQTransitionPushHalfHorizontal *push = [[MQTransitionPushHalfHorizontal alloc] init];
             push.transitionDuration = 0;
             [push animateTransitionWithFromViewCtrl:toVC toViewCtrl:fromVC];
