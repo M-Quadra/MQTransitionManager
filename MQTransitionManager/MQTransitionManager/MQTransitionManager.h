@@ -11,7 +11,8 @@
 typedef NS_ENUM(NSInteger, MQTransitionType) {
     MQTransitionType_None = 0,
     MQTransitionType_Normal,
-    MQTransitionType_CoverVertical,// similar present default animation 类模态默认转场
+    MQTransitionType_CoverVertical, // similar present default animation 类模态默认转场
+    MQTransitionType_HalfHorizontal,// 横屏适配专用，勿重复调用
 };
 
 #define MQTransitionManagerNotification_ViewControllersDidChange @"MQTransitionManagerNotification_ViewControllersDidChange"
@@ -33,8 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// push VC with TransitionType in NavigationController
 - (void)pushWithType:(MQTransitionType)type navigationController:(UINavigationController *)nvgCtrl;
+
 /// set pop TransitionType of VC
 - (void)setPopType:(MQTransitionType)type;
+/// reset Pop for customized PushTransition
+- (void)resetPopType;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,8 @@
 
 #import "MQTransitionPopCoverVertical.h"
 #import "MQTransitionPushCoverVertical.h"
+#import "MQTransitionPushHalfHorizontal.h"
+#import "MQTransitionPopHalfHorizontal.h"
 
 @interface MQTransitionManager ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *interactiveTransition;
@@ -69,6 +71,13 @@
         case MQTransitionType_CoverVertical: {
             self.navigationController.delegate = self;
             [self.navigationController pushViewController:self.viewController animated:YES];
+            break;
+        }
+        case MQTransitionType_HalfHorizontal: {
+            self.navigationController.delegate = self;
+            MQTransitionPushHalfHorizontal *push = [[MQTransitionPushHalfHorizontal alloc] init];
+            [push animateTransitionWithFromViewCtrl:nvgCtrl.viewControllers.lastObject toViewCtrl:self.viewController];
+            break;
         }
         default: {
             [self free];
@@ -78,6 +87,8 @@
 }
 
 - (void)setPopType:(MQTransitionType)type {
+    _type = type;
+    
     _navigationController = self.viewController.navigationController;
     if (!self.navigationController) return;
     
@@ -85,11 +96,14 @@
     // use GCD to keep lastDelegate won' t been covered
     // UINavigationController Delegate变化回调在viewDidAppear后才执行
     // 为了保证从push过来的delegate还原前不被抢占这里直接延迟
-    _type = type;
     dispatch_async(dispatch_get_main_queue(), ^{
         self->_lastDelegate = self.navigationController.delegate;
         switch (type) {
             case MQTransitionType_CoverVertical: {
+                self.navigationController.delegate = self;
+                break;
+            }
+            case MQTransitionType_HalfHorizontal: {
                 self.navigationController.delegate = self;
                 break;
             }
@@ -105,6 +119,10 @@
             [self.navigationController.interactivePopGestureRecognizer.view addGestureRecognizer:self.panGesture];
         }
     });
+}
+
+- (void)resetPopType {
+    [self setPopType:self.type];
 }
 
 #pragma mark - Lazy
@@ -181,6 +199,9 @@
     switch (self.type) {
         case MQTransitionType_CoverVertical: {
             return operation == UINavigationControllerOperationPush ? [MQTransitionPushCoverVertical new] : [MQTransitionPopCoverVertical new];
+        }
+        case MQTransitionType_HalfHorizontal: {
+            return operation == UINavigationControllerOperationPush ? nil : [MQTransitionPopHalfHorizontal new];
         }
         default: break;
     }

@@ -10,11 +10,23 @@
 #import "MQTransitionManager.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
-@interface ViewController ()
+#import "HalfNvgController.h"
+#import "HalfViewController.h"
 
+@interface ViewController ()
+@property (nonatomic, strong) NSArray *transitionTypeAry;
+@property (nonatomic, strong) NSArray *transitionTxtAry;
 @end
 
 @implementation ViewController
+- (instancetype)init {
+    if (!(self = [super init])) return nil;
+    
+    _transitionTypeAry = @[@(MQTransitionType_Normal), @(MQTransitionType_CoverVertical)];
+    _transitionTxtAry = @[@"", @""];
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +52,12 @@
     [txtField becomeFirstResponder];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -48,10 +66,16 @@
 }
 
 - (void)lftBtnClick:(UIButton *)sender {
-    ViewController *vc = [[ViewController alloc] init];
+//    ViewController *vc = [[ViewController alloc] init];
+//
+//    MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:vc];
+//    [transition pushWithType:MQTransitionType_Normal navigationController:self.navigationController];
     
-    MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:vc];
-    [transition pushWithType:MQTransitionType_Normal navigationController:self.navigationController];
+    HalfViewController *vc = [[HalfViewController alloc] init];
+    HalfNvgController *nvg = [[HalfNvgController alloc] initWithRootViewController:vc];
+    
+    MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:nvg];
+    [transition pushWithType:MQTransitionType_HalfHorizontal navigationController:self.navigationController];
 }
 
 - (void)ritBtnClick:(UIButton *)sender {
