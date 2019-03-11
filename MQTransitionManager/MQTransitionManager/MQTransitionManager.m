@@ -143,7 +143,7 @@
     process = MIN(process, 1);
     
     if (pan.state == UIGestureRecognizerStateBegan) {
-        if (ABS(velocity.y/velocity.x) > tanf(35.0 * M_PI/180.0)) {
+        if (velocity.x < 0 || ABS(velocity.y/velocity.x) > tanf(35.0 * M_PI/180.0)) {
             [pan cancelsTouchesInView];
             return;
         }
