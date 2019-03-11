@@ -10,6 +10,7 @@
 #import "MQTransitionManager.h"
 
 @interface MQTransitionPushHalfHorizontal ()
+@property (nonatomic, assign) CGRect fromViewDstFrame;
 @end
 
 @implementation MQTransitionPushHalfHorizontal
@@ -40,12 +41,14 @@
                      animations:^{
                          fromView.frame = CGRectMake(fromView.frame.origin.x,          fromView.frame.origin.y,
                                                      containerView.frame.size.width/2, containerView.frame.size.height);
+                         self->_fromViewDstFrame = fromView.frame;
                          
                          toView.frame = CGRectMake(containerView.frame.size.width/2,   0,
                                                    containerView.frame.size.width/2, containerView.frame.size.height);
                      } completion:^(BOOL finished) {
                          // addChildViewController 请在完成时再添加，不然会导致toVC默认导航栏异常
                          [fromVC.navigationController addChildViewController:toVC];
+                         fromView.frame = self.fromViewDstFrame;
                          
                          // Magic (懒)
                          // 在完成自定义pop后就不需要了_(:з」∠)_
