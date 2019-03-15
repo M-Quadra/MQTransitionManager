@@ -23,7 +23,7 @@
     [super viewDidAppear:animated];
     
     MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPop viewController:self];
-    [transition setPopType:MQTransitionType_HalfHorizontal];
+    [transition setPopType:MQTransitionType_OneThirdHorizontal];
 }
 
 @end

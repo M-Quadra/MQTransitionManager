@@ -12,7 +12,10 @@ typedef NS_ENUM(NSInteger, MQTransitionType) {
     MQTransitionType_None = 0,
     MQTransitionType_Normal,
     MQTransitionType_CoverVertical, // similar present default animation 类模态默认转场
-    MQTransitionType_HalfHorizontal,// 横屏适配专用，勿重复调用
+    // 横屏适配专用，勿重复调用
+    MQTransitionType_HalfHorizontal,     // 1 : 1
+    MQTransitionType_OneThirdHorizontal, // 1 : 2
+    MQTransitionType_Count,
 };
 
 #define MQTransitionManagerNotification_ViewControllersDidChange @"MQTransitionManagerNotification_ViewControllersDidChange"

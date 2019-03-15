@@ -9,8 +9,9 @@
 #import "MQTransitionManager.h"
 #import <objc/runtime.h>
 
-#import "MQTransitionPopCoverVertical.h"
 #import "MQTransitionPushCoverVertical.h"
+#import "MQTransitionPopCoverVertical.h"
+
 #import "MQTransitionPushCustomizedHorizontal.h"
 #import "MQTransitionPopCustomizedHorizontal.h"
 
@@ -79,6 +80,14 @@
             [push animateTransitionWithFromViewCtrl:nvgCtrl.viewControllers.lastObject toViewCtrl:self.viewController];
             break;
         }
+        case MQTransitionType_OneThirdHorizontal: {
+            self.navigationController.delegate = self;
+            MQTransitionPushCustomizedHorizontal *push = [[MQTransitionPushCustomizedHorizontal alloc] init];
+            push.fromUnit = 1;
+            push.toUnit   = 2;
+            [push animateTransitionWithFromViewCtrl:nvgCtrl.viewControllers.lastObject toViewCtrl:self.viewController];
+            break;
+        }
         default: {
             [self free];
             return;
@@ -98,19 +107,12 @@
     // 为了保证从push过来的delegate还原前不被抢占这里直接延迟
     dispatch_async(dispatch_get_main_queue(), ^{
         self->_lastDelegate = self.navigationController.delegate;
-        switch (type) {
-            case MQTransitionType_CoverVertical: {
-                self.navigationController.delegate = self;
-                break;
-            }
-            case MQTransitionType_HalfHorizontal: {
-                self.navigationController.delegate = self;
-                break;
-            }
-            default: {
-                [self free];
-                return;
-            }
+        
+        if (MQTransitionType_None < type && type < MQTransitionType_Count) {
+            self.navigationController.delegate = self;
+        } else {
+            [self free];
+            return;
         }
         
         if (self.navigationController.delegate == self) {
@@ -202,6 +204,13 @@
         }
         case MQTransitionType_HalfHorizontal: {
             return operation == UINavigationControllerOperationPush ? nil : [MQTransitionPopCustomizedHorizontal new];
+        }
+        case MQTransitionType_OneThirdHorizontal: {
+            if (operation == UINavigationControllerOperationPush) return nil;
+            MQTransitionPopCustomizedHorizontal *pop = [MQTransitionPopCustomizedHorizontal new];
+            pop.fromUnit = 2;
+            pop.toUnit   = 1;
+            return pop;
         }
         default: break;
     }

@@ -75,7 +75,7 @@
     HalfNvgController *nvg = [[HalfNvgController alloc] initWithRootViewController:vc];
     
     MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:nvg];
-    [transition pushWithType:MQTransitionType_HalfHorizontal navigationController:self.navigationController];
+    [transition pushWithType:MQTransitionType_OneThirdHorizontal navigationController:self.navigationController];
 }
 
 - (void)ritBtnClick:(UIButton *)sender {
