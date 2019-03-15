@@ -11,7 +11,7 @@
 
 #import "MQTransitionPopCoverVertical.h"
 #import "MQTransitionPushCoverVertical.h"
-#import "MQTransitionPushHalfHorizontal.h"
+#import "MQTransitionPushCustomizedHorizontal.h"
 #import "MQTransitionPopHalfHorizontal.h"
 
 @interface MQTransitionManager ()<UINavigationControllerDelegate>
@@ -75,7 +75,7 @@
         }
         case MQTransitionType_HalfHorizontal: {
             self.navigationController.delegate = self;
-            MQTransitionPushHalfHorizontal *push = [[MQTransitionPushHalfHorizontal alloc] init];
+            MQTransitionPushCustomizedHorizontal *push = [[MQTransitionPushCustomizedHorizontal alloc] init];
             [push animateTransitionWithFromViewCtrl:nvgCtrl.viewControllers.lastObject toViewCtrl:self.viewController];
             break;
         }

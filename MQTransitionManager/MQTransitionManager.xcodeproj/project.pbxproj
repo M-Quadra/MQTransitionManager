@@ -18,8 +18,8 @@
 		0FE0634321F08BCB000F9B6B /* MQTransitionPushCoverVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */; };
 		E73228CE22320670009ECC2C /* HalfNvgController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73228CD22320670009ECC2C /* HalfNvgController.m */; };
 		E73228D222320710009ECC2C /* HalfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73228D122320710009ECC2C /* HalfViewController.m */; };
-		E73228D52232082D009ECC2C /* MQTransitionPushHalfHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = E73228D42232082D009ECC2C /* MQTransitionPushHalfHorizontal.m */; };
 		E73228D822323953009ECC2C /* MQTransitionPopHalfHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = E73228D722323953009ECC2C /* MQTransitionPopHalfHorizontal.m */; };
+		E7B270A3223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B270A2223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.m */; };
 		EC1274C303216AC1381849A9 /* libPods-MQTransitionManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B772F6C0298AC4FCD34DF95 /* libPods-MQTransitionManager.a */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +47,10 @@
 		E73228CD22320670009ECC2C /* HalfNvgController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HalfNvgController.m; sourceTree = "<group>"; };
 		E73228D022320710009ECC2C /* HalfViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HalfViewController.h; sourceTree = "<group>"; };
 		E73228D122320710009ECC2C /* HalfViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HalfViewController.m; sourceTree = "<group>"; };
-		E73228D32232082D009ECC2C /* MQTransitionPushHalfHorizontal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionPushHalfHorizontal.h; sourceTree = "<group>"; };
-		E73228D42232082D009ECC2C /* MQTransitionPushHalfHorizontal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPushHalfHorizontal.m; sourceTree = "<group>"; };
 		E73228D622323953009ECC2C /* MQTransitionPopHalfHorizontal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionPopHalfHorizontal.h; sourceTree = "<group>"; };
 		E73228D722323953009ECC2C /* MQTransitionPopHalfHorizontal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPopHalfHorizontal.m; sourceTree = "<group>"; };
+		E7B270A1223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTransitionPushCustomizedHorizontal.h; sourceTree = "<group>"; };
+		E7B270A2223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTransitionPushCustomizedHorizontal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +128,8 @@
 			children = (
 				0FE0634121F08BCB000F9B6B /* MQTransitionPushCoverVertical.h */,
 				0FE0634221F08BCB000F9B6B /* MQTransitionPushCoverVertical.m */,
-				E73228D32232082D009ECC2C /* MQTransitionPushHalfHorizontal.h */,
-				E73228D42232082D009ECC2C /* MQTransitionPushHalfHorizontal.m */,
+				E7B270A1223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.h */,
+				E7B270A2223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.m */,
 			);
 			path = Push;
 			sourceTree = "<group>";
@@ -281,9 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B270A3223A598000A60AA2 /* MQTransitionPushCustomizedHorizontal.m in Sources */,
 				0FE0634321F08BCB000F9B6B /* MQTransitionPushCoverVertical.m in Sources */,
 				E73228D822323953009ECC2C /* MQTransitionPopHalfHorizontal.m in Sources */,
-				E73228D52232082D009ECC2C /* MQTransitionPushHalfHorizontal.m in Sources */,
 				E73228D222320710009ECC2C /* HalfViewController.m in Sources */,
 				0FDBB56521F055C300810CA9 /* MQTransitionManager.m in Sources */,
 				0FDBB55021F0530D00810CA9 /* ViewController.m in Sources */,

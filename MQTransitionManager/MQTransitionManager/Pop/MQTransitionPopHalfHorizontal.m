@@ -7,7 +7,7 @@
 //
 
 #import "MQTransitionPopHalfHorizontal.h"
-#import "MQTransitionPushHalfHorizontal.h"
+#import "MQTransitionPushCustomizedHorizontal.h"
 
 @implementation MQTransitionPopHalfHorizontal
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -45,7 +45,9 @@
             [[UIApplication sharedApplication].delegate.window addSubview:maskView];
 
             // 若后续没有任何延迟操作与视图闪动情况可不使用眨眼补帧
-            MQTransitionPushHalfHorizontal *push = [[MQTransitionPushHalfHorizontal alloc] init];
+            MQTransitionPushCustomizedHorizontal *push = [[MQTransitionPushCustomizedHorizontal alloc] init];
+            push.fromUnit = 1;
+            push.toUnit   = 1;
             push.transitionDuration = 0;
             [push animateTransitionWithFromViewCtrl:toVC toViewCtrl:fromVC];
             [maskView removeFromSuperview];
