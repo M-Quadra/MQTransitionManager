@@ -12,7 +12,7 @@
 #import "MQTransitionPopCoverVertical.h"
 #import "MQTransitionPushCoverVertical.h"
 #import "MQTransitionPushCustomizedHorizontal.h"
-#import "MQTransitionPopHalfHorizontal.h"
+#import "MQTransitionPopCustomizedHorizontal.h"
 
 @interface MQTransitionManager ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *interactiveTransition;
@@ -201,7 +201,7 @@
             return operation == UINavigationControllerOperationPush ? [MQTransitionPushCoverVertical new] : [MQTransitionPopCoverVertical new];
         }
         case MQTransitionType_HalfHorizontal: {
-            return operation == UINavigationControllerOperationPush ? nil : [MQTransitionPopHalfHorizontal new];
+            return operation == UINavigationControllerOperationPush ? nil : [MQTransitionPopCustomizedHorizontal new];
         }
         default: break;
     }
