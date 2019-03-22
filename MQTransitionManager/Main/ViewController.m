@@ -13,7 +13,7 @@
 #import "HalfNvgController.h"
 #import "HalfViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray *transitionTypeAry;
 @property (nonatomic, strong) NSArray *transitionTxtAry;
 @end
@@ -22,8 +22,15 @@
 - (instancetype)init {
     if (!(self = [super init])) return nil;
     
-    _transitionTypeAry = @[@(MQTransitionType_Normal), @(MQTransitionType_CoverVertical)];
-    _transitionTxtAry = @[@"", @""];
+    _transitionTypeAry = @[@(MQTransitionType_Normal),
+                           @(MQTransitionType_CoverVertical),
+                           @(MQTransitionType_HalfHorizontal),
+                           @(MQTransitionType_OneThirdHorizontal)];
+    
+    _transitionTxtAry = @[@"Normal",
+                          @"CoverVertical",
+                          @"HalfHorizontal",
+                          @"OneThirdHorizontal"];
     
     return self;
 }
@@ -31,31 +38,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UITableView *tbView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
+    [tbView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    
+    tbView.delegate   = self;
+    tbView.dataSource = self;
+    
+    [self.view addSubview:tbView];
+    
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
     keyboardManager.shouldResignOnTouchOutside = YES;
     
-    self.view.backgroundColor = self.navigationController.viewControllers.count&1 ? [UIColor lightGrayColor] : [UIColor grayColor];
-    self.navigationItem.title = [@(self.navigationController.viewControllers.count) stringValue];
-    
-    UIButton *btnLft = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 50, 50)];
-    btnLft.backgroundColor = [UIColor redColor];
-    [btnLft addTarget:self action:@selector(lftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnLft];
-    
-    UIButton *btnRit = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, 50, 50)];
-    btnRit.backgroundColor = [UIColor greenColor];
-    [btnRit addTarget:self action:@selector(ritBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnRit];
-    
-    UITextField *txtField = [[UITextField alloc] initWithFrame:CGRectMake(50, 50, 200, 50)];
+    UITextField *txtField = [[UITextField alloc] initWithFrame:CGRectMake(100, 50, 200, 20)];
+    txtField.backgroundColor = [UIColor grayColor];
     [self.view addSubview:txtField];
     [txtField becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-//    self.navigationController.navigationBar
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -65,23 +68,42 @@
     [transition setPopType:self.navigationController.viewControllers.count&1 ? MQTransitionType_Normal : MQTransitionType_CoverVertical];
 }
 
-- (void)lftBtnClick:(UIButton *)sender {
-//    ViewController *vc = [[ViewController alloc] init];
-//
-//    MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:vc];
-//    [transition pushWithType:MQTransitionType_Normal navigationController:self.navigationController];
-    
-    HalfViewController *vc = [[HalfViewController alloc] init];
-    HalfNvgController *nvg = [[HalfNvgController alloc] initWithRootViewController:vc];
-    
-    MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:nvg];
-    [transition pushWithType:MQTransitionType_OneThirdHorizontal navigationController:self.navigationController];
-}
-
 - (void)ritBtnClick:(UIButton *)sender {
     ViewController *vc = [[ViewController alloc] init];
     
     MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:vc];
     [transition pushWithType:MQTransitionType_CoverVertical navigationController:self.navigationController];
 }
+
+#pragma mark - TableView/DataSource Delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.transitionTxtAry.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    cell.textLabel.text = self.transitionTxtAry[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MQTransitionType pushType = [self.transitionTypeAry[indexPath.row] integerValue];
+    
+    if (pushType < MQTransitionType_HalfHorizontal) {
+        ViewController *vc = [ViewController new];
+        MQTransitionManager *manager = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:vc];
+        [manager pushWithType:pushType navigationController:self.navigationController];
+        return;
+    }
+    
+    HalfViewController *vc = [[HalfViewController alloc] init];
+    HalfNvgController *nvg = [[HalfNvgController alloc] initWithRootViewController:vc];
+    
+    MQTransitionManager *manager = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPush viewController:nvg];
+    [manager pushWithType:pushType navigationController:self.navigationController];
+    
+    manager = [MQTransitionManager shareManagerWithOperation:UINavigationControllerOperationPop viewController:nvg];
+    [manager setPopType:pushType];
+}
+
 @end
