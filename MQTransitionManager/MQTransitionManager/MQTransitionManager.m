@@ -189,8 +189,11 @@
         self.navigationController.delegate = self.lastDelegate;
     }
     [self.navigationController.interactivePopGestureRecognizer.view removeGestureRecognizer:_panGesture];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     objc_setAssociatedObject(self.viewController, &_key, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UINavigationController Delegate
