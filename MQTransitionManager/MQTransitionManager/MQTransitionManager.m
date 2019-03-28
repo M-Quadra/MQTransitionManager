@@ -154,7 +154,11 @@
         [self.interactiveTransition updateInteractiveTransition:process];
     } else {
         if (process > 0.4 || velocity.x > 900) {
+            // prevent animations between "animations:" and "completion:"
+            // before "[self.interactiveTransition finishInteractiveTransition]"
+            [self.interactiveTransition updateInteractiveTransition:1];
             [self.interactiveTransition finishInteractiveTransition];
+            
             // 小概率出现finish后触发cancel, 导致导航栏莫名消失
             // 因此在finish后直接释放interactiveTransition
             _interactiveTransition = nil;

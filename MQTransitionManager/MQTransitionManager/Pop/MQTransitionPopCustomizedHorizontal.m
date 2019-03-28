@@ -9,6 +9,10 @@
 #import "MQTransitionPopCustomizedHorizontal.h"
 #import "MQTransitionManager.h"
 
+@interface MQTransitionPopCustomizedHorizontal ()
+@property (nonatomic, assign) CGRect toViewDstFrame;
+@end
+
 @implementation MQTransitionPopCustomizedHorizontal
 - (instancetype)init {
     if (!(self = [super init])) return nil;
@@ -48,10 +52,19 @@
                                     fromView.frame.size.width,      fromView.frame.size.height);
         toView.frame = CGRectMake(toView.frame.origin.x,          toView.frame.origin.y,
                                   containerView.frame.size.width, toView.frame.size.height);
+        
+        self->_toViewDstFrame = toView.frame;
     } completion:^(BOOL finished) {
         // 不执行任何navigationController push相关方法
         [transitionContext completeTransition:YES];
-        if (!transitionContext.transitionWasCancelled) return;
+        if (!transitionContext.transitionWasCancelled) {
+            if (CGRectEqualToRect(toView.frame, self.toViewDstFrame)) return;
+            // in iOS 12.2
+            // toView.frame.origin.x may be changed between "animations:" and "completion:" by Magic
+            
+            toView.frame = self.toViewDstFrame;
+            return;
+        }
         
         // 眨眼补帧∠( ᐛ 」∠)＿
         UIView *maskView = [[UIApplication sharedApplication].delegate.window snapshotViewAfterScreenUpdates:NO];
