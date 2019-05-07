@@ -6,11 +6,24 @@
 
 包含了一个类模态默认跳转的自定义过程, 自定义皆为全屏手势, 需要其他过程动画可自行扩充`TransitionType`
 
-配合[FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture)食用效果更佳
+集成[FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture)
+
+# 安装
+
+### CocoaPods
+
+```
+pod 'MQTransitionManager'
+```
+
 
 # 使用方式
 
-将项目中的'MQTransitionManager'文件夹拖到需要使用的工程中即可
+头文件
+  
+```
+#import <MQTransitionManager/MQTransitionManager.h>
+```
 
 ### Push方法
 
@@ -36,7 +49,9 @@ iOS12 pop过场取消时 激活中的英文键盘 在下次输入触发前不能
 
 疑似系统问题, 不知道Apple啥时候修复
 
--
+# 依赖
+
+[FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture)
 
 友情支持
 
