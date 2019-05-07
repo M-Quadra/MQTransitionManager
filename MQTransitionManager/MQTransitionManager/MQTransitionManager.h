@@ -18,8 +18,6 @@ typedef NS_ENUM(NSInteger, MQTransitionType) {
     MQTransitionType_Count,
 };
 
-#define MQTransitionManagerNotification_ViewControllersDidChange @"MQTransitionManagerNotification_ViewControllersDidChange"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MQTransitionManager : NSObject

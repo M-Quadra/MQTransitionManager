@@ -7,6 +7,9 @@
 //
 
 #import "MQTransitionManager.h"
+
+#define MQ_DID_VIEWCONTROLLERS_CHANGE @"MQ_DID_VIEWCONTROLLERS_CHANGE"
+
 #import <objc/runtime.h>
 
 #import "MQTransitionPushCoverVertical.h"
@@ -48,7 +51,7 @@
     _operation = operation;
     _key = key;
     objc_setAssociatedObject(vc, NSSelectorFromString(key), self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewCtrlsDidChnage) name:MQTransitionManagerNotification_ViewControllersDidChange object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewCtrlsDidChnage) name:MQ_DID_VIEWCONTROLLERS_CHANGE object:nil];
     
     return self;
 }
@@ -239,7 +242,7 @@
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     // later than -viewDidAppear
     // 在viewDidAppear后触发
-    [[NSNotificationCenter defaultCenter] postNotificationName:MQTransitionManagerNotification_ViewControllersDidChange object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MQ_DID_VIEWCONTROLLERS_CHANGE object:nil];
     return;
 }
 @end
