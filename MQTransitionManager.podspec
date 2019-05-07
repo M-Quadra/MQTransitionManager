@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "MQTransitionManager"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "a transition manager for UINavigationController"
   spec.description  = <<-DESC
   a transition manager for UINavigationController
