@@ -108,7 +108,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         self->_lastDelegate = self.navigationController.delegate;
         
-        if (MQTransitionType_None < type && type < MQTransitionType_Count) {
+        if (MQTransitionType_Normal < type && type < MQTransitionType_Count) {
             self.navigationController.delegate = self;
         } else {
             [self free];
