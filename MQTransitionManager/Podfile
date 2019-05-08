@@ -1,5 +1,7 @@
 platform:ios, '9.0'
 target 'MQTransitionManager' do
-    pod 'FDFullscreenPopGesture'
-    pod 'IQKeyboardManager'
+  pod 'FDFullscreenPopGesture'
+  pod 'IQKeyboardManager'
+
+#  pod 'IQKeyboardManager', :path => '~/IQKeyboardManager'
 end

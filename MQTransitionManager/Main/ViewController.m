@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import "MQTransitionManager.h"
+#if __has_include(<IQKeyboardManager/IQKeyboardManager.h>)
 #import <IQKeyboardManager/IQKeyboardManager.h>
-
+#endif
 #import "HalfNvgController.h"
 #import "HalfViewController.h"
 
@@ -47,8 +48,11 @@
     
     [self.view addSubview:tbView];
     
+#if __has_include(<IQKeyboardManager/IQKeyboardManager.h>)
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
     keyboardManager.shouldResignOnTouchOutside = YES;
+//    keyboardManager.enable = NO;
+#endif
     
     UITextField *txtField = [[UITextField alloc] initWithFrame:CGRectMake(100, 50, 200, 20)];
     txtField.backgroundColor = [UIColor grayColor];

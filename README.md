@@ -45,9 +45,7 @@ MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation
 
 # 已知问题
 
-iOS12 pop过场取消时 激活中的英文键盘 在下次输入触发前不能及时复位
-
-疑似系统问题, 不知道Apple啥时候修复
+1. iOS12 pop过场取消时, 若存在激活中的英文键盘, 则会出现键盘显示下沉, 并且在下次输入触发前无法及时复位(疑似系统问题)
 
 # 依赖
 

@@ -49,5 +49,15 @@
     // IQKeyboard may change the frame of fromView when pop
     UIView *fromView = (UIView *)object;
     fromView.frame = self.dstFrame;
+    
+    // prevent fromView flashing in pop animation
+    for (NSString *key in fromView.layer.animationKeys) {
+        if ([key isEqualToString:@"UIPacingAnimationForAnimatorsKey"] || [key isEqualToString:@"position"]) {
+            continue;
+        }
+        
+        [fromView.layer removeAnimationForKey:key];
+    }
 }
+
 @end
