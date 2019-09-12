@@ -1,6 +1,6 @@
 PODS:
   - FDFullscreenPopGesture (1.1)
-  - IQKeyboardManager (6.3.0)
+  - IQKeyboardManager (6.4.2)
 
 DEPENDENCIES:
   - FDFullscreenPopGesture
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
+  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
 
 PODFILE CHECKSUM: 85ba21212ce76bb07e49a30be254a95ee2ef8a9a
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5
