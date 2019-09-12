@@ -65,7 +65,7 @@ MQTransitionManager *transition = [MQTransitionManager shareManagerWithOperation
 # 未来巨坑
 
 - 一别英语三十年, 致死不曾过四级
-- 不是我吹, 连续参加过英语补课的人就我一个
+- 不是我吹, 连续参加过英语补考的人就我一个
 - 有空想加英文说明\_(ˊཀˋ」∠)_
 - 哪天有空把文档写完了, 就进0.1.0版本吧\_(:з」∠)_
 - 0.0.3预计把类模态默认转场调整到接近系统的效果
